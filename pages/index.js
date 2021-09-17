@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Timezones.fyi</title>
+        <title>timezones.fyi</title>
         <meta name="description" content="A rizbizkits project" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
