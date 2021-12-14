@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container && "mono"}>
       <Head>
         <title>timezones.fyi</title>
         <meta name="description" content="A rizbizkits project" />
@@ -11,9 +11,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h4>“You can have it all. Just not all at once.”</h4>
-        <h4>― Oprah Winfrey</h4>
         <p>&#8962;</p>
+
+        <p>“You can have it all. Just not all at once.”</p>
+        <p>― Oprah Winfrey</p>
+
+        <a href="/overview" className="glow">
+          → Overview
+        </a>
       </main>
     </div>
   );
