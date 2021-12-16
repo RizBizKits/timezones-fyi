@@ -1,6 +1,21 @@
 import Head from "next/head";
+import getLocalTime from "../lib/time/get-local-time";
+import React, { useEffect, useState } from "react";
 
 export default function Overview() {
+  const currentTime = getLocalTime();
+  const [time, setTime] = useState(currentTime);
+
+  function refreshTime() {
+    setTime(getLocalTime());
+  }
+
+  useEffect(() => {
+    setInterval(() => {
+      refreshTime();
+    }, 1000);
+  }, []);
+
   return (
     <div className="wrapper center pt-l">
       <Head>
@@ -16,7 +31,7 @@ export default function Overview() {
       <main className="mono">
         <p>&#8962; Everyone's time is happening at once.</p>
         <h4>
-          Yours is ticking at <span className="glow">7 minutes past 10</span>.
+          Yours is ticking at <span className="glow">{`${time}`}</span>.
         </h4>
       </main>
     </div>
