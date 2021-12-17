@@ -1,9 +1,11 @@
 import Head from "next/head";
 import getLocalTime from "../lib/time/get-local-time";
+import getLocalTimezone from "../lib/time/get-local-timezone";
 import React, { useEffect, useState } from "react";
 
 export default function Overview() {
   const currentTime = getLocalTime();
+  const currentTimezone = getLocalTimezone();
   const [time, setTime] = useState(currentTime);
 
   function refreshTime() {
@@ -31,7 +33,8 @@ export default function Overview() {
       <main className="mono">
         <p>&#8962; Everyone's time is happening at once.</p>
         <h4>
-          Yours is ticking at <span className="glow">{`${time}`}</span>.
+          Yours is ticking at <span className="glow">{`${time}`}</span>{" "}
+          <span className="highlight">{`${currentTimezone}`}</span>.
         </h4>
       </main>
     </div>

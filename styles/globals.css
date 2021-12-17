@@ -33,6 +33,28 @@ a {
   color: aliceblue;
 }
 
+.highlight {
+  position: relative;
+  color: #000000;
+  z-index: 1;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.highlight:before {
+  width: 100%;
+  height: 80%;
+  content: "";
+  position: absolute;
+  background: #ccff00;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  border-radius: 18px;
+  z-index: -1;
+}
+
 .pt-l {
   padding-top: 40px;
 }
