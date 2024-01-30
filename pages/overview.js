@@ -2,6 +2,7 @@ import Head from "next/head";
 import getLocalTime from "../lib/time/get-local-time";
 import getLocalTimezone from "../lib/time/get-local-timezone";
 import React, { useEffect, useState } from "react";
+import { DateTime } from "luxon";
 
 export default function Overview() {
   const currentTime = getLocalTime();
@@ -18,6 +19,15 @@ export default function Overview() {
     }, 1000);
   }, []);
 
+  const n = DateTime.now();
+  const now = n.toLocaleString(DateTime.TIME_WITH_SECONDS);
+  const z = n.toFormat("ZZZZ");
+
+  const aa = DateTime.now()
+    .setZone("America/New_York")
+    .toLocaleString(DateTime.TIME_WITH_SECONDS);
+  const a = DateTime.now().setZone("America/New_York").toFormat("ZZZZ");
+
   return (
     <div className="wrapper center pt-l">
       <Head>
@@ -32,10 +42,21 @@ export default function Overview() {
 
       <main className="mono">
         <p>&#8962; Everyone's time is happening at once.</p>
-        <h4>
-          Yours is ticking at <span className="glow">{`${time}`}</span>{" "}
-          <span className="highlight">{`${currentTimezone}`}</span>.
+
+        <h4 class="txt-c">
+          Yours is ticking at <span className="glow">{now}</span>{" "}
+          <span className="highlight">{z}</span>
         </h4>
+        <button class="btn">
+          <img src="/icons/edit-btn.svg" alt="" />
+        </button>
+        <button class="btn">
+          <img src="/icons/refresh-btn.svg" alt="" />
+        </button>
+        {/* <h4>
+          Adrian's ticking at <span className="glow">{aa}</span>{" "}
+          <span className="highlight">{a}</span>.
+        </h4> */}
       </main>
     </div>
   );

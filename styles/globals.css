@@ -99,6 +99,17 @@ small,
   font-size: 0.8rem;
 }
 
+.txt-c {
+  text-align: center;
+}
+
+.btn {
+  background-color: #000000;
+  border: solid 1px #d9d9d9;
+
+  /* border: solid 1px #d9d9d9; */
+}
+
 * {
   box-sizing: border-box;
 }
